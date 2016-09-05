@@ -1,0 +1,5 @@
+.htaccess
+composer.lock
+site
+vendor
+cache

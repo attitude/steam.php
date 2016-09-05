@@ -1,0 +1,17 @@
+{
+    "name": "undercowear",
+    "repositories": [
+        {
+            "type": "vcs",
+        	"url": "git@github.com:attitude/uiml-php.git"
+    	},
+        {
+            "type": "vcs",
+            "url": "git@github.com:attitude/rfpl-cache-php.git"
+        }
+    ],
+    "require": {
+        "attitude/uiml-php": "dev-master",
+        "attitude/rfpl-cache-php": "dev-master"
+    }
+}
