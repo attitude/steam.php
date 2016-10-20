@@ -41,6 +41,7 @@ class Site
     {
         $defaults = [
             'uri' => null,
+            'sitePath' => 'site',
             'contentFilter' => null,
             'useCache' => true,
             'cacheOptions' => [
@@ -49,6 +50,8 @@ class Site
 
         $options = array_replace_recursive($defaults, $options);
         extract($options);
+
+        $sitePath = rtrim($sitePath, '/');
 
         if ($uri !== null && !is_string($uri)) {
             throw new \Exception("`url` must be a string or null", 400);
@@ -118,7 +121,7 @@ class Site
 
         // header('Content-Type: text/html; charset=utf-8');
 
-        $layout = new \UIML\Document("site/pages/{$page}.php", 'site/tags', '.php');
+        $layout = new \UIML\Document("{$sitePath}/pages/{$page}.php", "{$sitePath}/tags", '.php');
 
         $layout->registerTagFilter(function($html) {
             return static::translateXML($html);
